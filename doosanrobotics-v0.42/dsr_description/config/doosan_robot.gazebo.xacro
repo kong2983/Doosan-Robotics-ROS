@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<robot>
+  <!-- World -->
+  <gazebo reference="world">
+  </gazebo>
+
+  <!-- Base -->
+  <gazebo reference="base_0">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Link1 -->
+  <gazebo reference="link1">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <visual>  
+      <material>  
+        <ambient>0.173 0.235 0.298 1.0</ambient>  
+        <diffuse>0.173 0.235 0.298 1.0</diffuse>  
+        <specular>0.173 0.235 0.298 1.0</specular>  
+        <emissive>0.173 0.235 0.298 1.0</emissive>  
+      </material>  
+    </visual>  
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="link2">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+  </gazebo>
+
+  <!-- Link3 -->
+  <gazebo reference="link3">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+  </gazebo>
+
+  <!-- Link4 -->
+  <gazebo reference="link4">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <visual>  
+      <material>  
+      </material>  
+    </visual>  
+  </gazebo>
+
+  <gazebo reference="link4_1">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <material>Gazebo/Grey</material>  
+  </gazebo>
+
+ <!-- Link5 -->
+  <gazebo reference="link5">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+ <!-- Link6 -->
+  <gazebo reference="link6">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>30.0</mu1>
+    <mu2>30.0</mu2>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+  </gazebo>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/$(arg namespace)</robotNamespace>
+      <controlPeriod>0.001</controlPeriod>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <gripper name="gazebo_gripper">
+      <grasp_check>
+        <attach_steps>2</attach_steps>    <!-- default: 20 -->
+        <detach_steps>2</detach_steps>    <!-- default: 40 -->
+        <min_contact_count>3</min_contact_count>
+      </grasp_check>
+      <gripper_link>robotiq_85_left_finger_tip_link</gripper_link>
+      <gripper_link>robotiq_85_right_finger_tip_link</gripper_link>
+      <palm_link>robotiq_85_base_link</palm_link>
+    </gripper>
+  </gazebo>  
+
+</robot>
